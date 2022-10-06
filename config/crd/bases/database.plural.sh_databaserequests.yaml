@@ -15,7 +15,16 @@ spec:
     singular: databaserequest
   scope: Namespaced
   versions:
-  - name: v1alpha1
+  - additionalPrinterColumns:
+    - description: Database ready status
+      jsonPath: .status.ready
+      name: Ready
+      type: string
+    - description: Database name
+      jsonPath: .status.databaseName
+      name: Database
+      type: string
+    name: v1alpha1
     schema:
       openAPIV3Schema:
         properties:
