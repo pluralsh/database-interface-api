@@ -33,9 +33,6 @@ spec:
             type: object
           spec:
             properties:
-              bucketAccessClassName:
-                description: DatabaseAccessClassName is the name of the DatabaseAccessClass
-                type: string
               credentialsSecretName:
                 description: CredentialsSecretName is the name of the secret that
                   operator should populate with the credentials. If a secret by this
@@ -43,12 +40,15 @@ spec:
                   been generated. It is not overridden. This secret is deleted when
                   the DatabaseAccess is delted.
                 type: string
+              databaseAccessClassName:
+                description: DatabaseAccessClassName is the name of the DatabaseAccessClass
+                type: string
               databaseRequestName:
                 description: DatabaseRequestName is the name of the DatabaseRequest.
                 type: string
             required:
-            - bucketAccessClassName
             - credentialsSecretName
+            - databaseAccessClassName
             - databaseRequestName
             type: object
           status:

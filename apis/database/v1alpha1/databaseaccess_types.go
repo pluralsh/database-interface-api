@@ -27,7 +27,7 @@ type DatabaseAccessSpec struct {
 	DatabaseRequestName string `json:"databaseRequestName"`
 
 	// DatabaseAccessClassName is the name of the DatabaseAccessClass
-	DatabaseAccessClassName string `json:"bucketAccessClassName"`
+	DatabaseAccessClassName string `json:"databaseAccessClassName"`
 
 	// CredentialsSecretName is the name of the secret that operator should populate
 	// with the credentials. If a secret by this name already exists, then it is

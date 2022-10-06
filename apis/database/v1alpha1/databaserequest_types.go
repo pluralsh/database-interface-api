@@ -51,6 +51,9 @@ type DatabaseRequestStatus struct {
 // +kubebuilder:object:root=true
 // +kubebuilder:resource:scope=Namespaced
 // +kubebuilder:subresource:status
+// +kubebuilder:printcolumn:name="Ready",type="string",JSONPath=".status.ready",description="Database ready status"
+// +kubebuilder:printcolumn:name="Database",type="string",JSONPath=".status.databaseName",description="Database name"
+
 type DatabaseRequest struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
