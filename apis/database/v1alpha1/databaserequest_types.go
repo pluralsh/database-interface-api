@@ -27,9 +27,6 @@ type DatabaseRequestSpec struct {
 	// DatabaseClassName name of the DatabaseClass
 	DatabaseClassName string `json:"databaseClassName,omitempty"`
 
-	// Engine name
-	Engine string `json:"engine"`
-
 	// Name of a database object.
 	// If unspecified, then a new Database will be dynamically provisioned
 	// +optional

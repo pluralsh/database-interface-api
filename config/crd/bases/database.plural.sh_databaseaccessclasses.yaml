@@ -41,7 +41,7 @@ spec:
             additionalProperties:
               type: string
             description: Parameters is an opaque map for passing in configuration
-              to a driver for granting access to a bucket
+              to a driver for granting access to the database
             type: object
         required:
         - authenticationType

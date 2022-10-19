@@ -34,7 +34,7 @@ type DatabaseClass struct {
 	DriverName string `json:"driverName"`
 
 	// Parameters is an opaque map for passing in configuration to a driver
-	// for creating the bucket
+	// for creating the database
 	// +optional
 	Parameters map[string]string `json:"parameters,omitempty"`
 }

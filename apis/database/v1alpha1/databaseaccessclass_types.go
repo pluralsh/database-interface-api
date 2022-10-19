@@ -24,7 +24,7 @@ type DatabaseAccessClass struct {
 	AuthenticationType AuthenticationType `json:"authenticationType"`
 
 	// Parameters is an opaque map for passing in configuration to a driver
-	// for granting access to a bucket
+	// for granting access to the database
 	// +optional
 	Parameters map[string]string `json:"parameters,omitempty"`
 }
