@@ -45,15 +45,10 @@ spec:
               databaseClassName:
                 description: DatabaseClassName name of the DatabaseClass
                 type: string
-              engine:
-                description: Engine name
-                type: string
               existingBucketName:
                 description: Name of a database object. If unspecified, then a new
                   Database will be dynamically provisioned
                 type: string
-            required:
-            - engine
             type: object
           status:
             properties:

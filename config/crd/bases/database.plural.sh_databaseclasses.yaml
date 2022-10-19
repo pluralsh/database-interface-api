@@ -38,7 +38,7 @@ spec:
             additionalProperties:
               type: string
             description: Parameters is an opaque map for passing in configuration
-              to a driver for creating the bucket
+              to a driver for creating the database
             type: object
         required:
         - driverName

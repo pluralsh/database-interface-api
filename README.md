@@ -1,6 +1,8 @@
 # Database Interface API
 
-This repository hosts the API defintion of the Custom Resource Definitions (CRD) used for the Database Interface project.
+This repository hosts the API defintion of the Custom Resource Definitions (CRD) used for the Database Interface project
+and gRPC API for the Database standard [gRPC specification](spec/README.md).
+
 The provisioned unit of storage is a `Database`. The following CRDs are defined for managing the lifecycle of Databases:
 
 - DatabaseRequest - Represents a request to provision a Database
