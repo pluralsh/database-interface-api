@@ -44,6 +44,14 @@ type DatabaseSpec struct {
 	// This field will be empty when the Database is dynamically provisioned by operator.
 	// +optional
 	ExistingDatabaseID string `json:"existingBucketID,omitempty"`
+
+	// DeletionPolicy is used to specify how to handle deletion. There are 2 possible values:
+	//  - Retain: Indicates that the database should not be deleted (default)
+	//  - Delete: Indicates that the database should be deleted
+	//
+	// +optional
+	// +kubebuilder:default:=Retain
+	DeletionPolicy DeletionPolicy `json:"deletionPolicy"`
 }
 
 type DatabaseStatus struct {

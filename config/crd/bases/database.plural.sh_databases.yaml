@@ -76,6 +76,13 @@ spec:
                     type: string
                 type: object
                 x-kubernetes-map-type: atomic
+              deletionPolicy:
+                default: Retain
+                description: 'DeletionPolicy is used to specify how to handle deletion.
+                  There are 2 possible values: - Retain: Indicates that the database
+                  should not be deleted (default) - Delete: Indicates that the database
+                  should be deleted'
+                type: string
               driverName:
                 description: DriverName is the name of driver associated with this
                   database
