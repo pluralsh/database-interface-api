@@ -22,6 +22,13 @@ func init() {
 	SchemeBuilder.Register(&DatabaseClass{}, &DatabaseClassList{})
 }
 
+type DeletionPolicy string
+
+const (
+	DeletionPolicyRetain DeletionPolicy = "Retain"
+	DeletionPolicyDelete DeletionPolicy = "Delete"
+)
+
 // +kubebuilder:object:root=true
 // +kubebuilder:resource:scope=Cluster
 type DatabaseClass struct {
@@ -37,6 +44,14 @@ type DatabaseClass struct {
 	// for creating the database
 	// +optional
 	Parameters map[string]string `json:"parameters,omitempty"`
+
+	// DeletionPolicy is used to specify how to handle deletion. There are 2 possible values:
+	//  - Retain: Indicates that the database should not be deleted (default)
+	//  - Delete: Indicates that the database should be deleted
+	//
+	// +optional
+	// +kubebuilder:default:=Retain
+	DeletionPolicy DeletionPolicy `json:"deletionPolicy"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
