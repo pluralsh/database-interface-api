@@ -17,6 +17,7 @@ limitations under the License.
 package v1alpha1
 
 import (
+	crhelperTypes "github.com/pluralsh/controller-reconcile-helper/pkg/types"
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
@@ -24,6 +25,14 @@ import (
 func init() {
 	SchemeBuilder.Register(&Database{}, &DatabaseList{})
 }
+
+const (
+	// DatabaseReadyCondition used when database is ready.
+	DatabaseReadyCondition crhelperTypes.ConditionType = "DatabaseReady"
+
+	// FailedToCreateDatabaseReason used when grpc method for database creation failed.
+	FailedToCreateDatabaseReason = "FailedToCreateDatabase"
+)
 
 type DatabaseSpec struct {
 	// DriverName is the name of driver associated with this database
@@ -62,11 +71,27 @@ type DatabaseStatus struct {
 	// DatabaseID is the unique id of the database
 	// +optional
 	DatabaseID string `json:"databaseID,omitempty"`
+
+	// Conditions defines current state.
+	// +optional
+	Conditions crhelperTypes.Conditions `json:"conditions,omitempty"`
+}
+
+// GetConditions returns the list of conditions for a WireGuardServer API object.
+func (db *Database) GetConditions() crhelperTypes.Conditions {
+	return db.Status.Conditions
+}
+
+// SetConditions will set the given conditions on a WireGuardServer object.
+func (db *Database) SetConditions(conditions crhelperTypes.Conditions) {
+	db.Status.Conditions = conditions
 }
 
 // +kubebuilder:object:root=true
 // +kubebuilder:resource:scope=Cluster
 // +kubebuilder:subresource:status
+// +kubebuilder:printcolumn:name="Ready",type="string",JSONPath=".status.ready",description="Database ready status"
+
 type Database struct {
 	metav1.TypeMeta `json:",inline"`
 	// +optional
