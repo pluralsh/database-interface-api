@@ -4,6 +4,7 @@ go 1.18
 
 require (
 	github.com/golang/protobuf v1.5.2
+	github.com/pluralsh/controller-reconcile-helper v0.0.4
 	google.golang.org/grpc v1.50.0
 	google.golang.org/protobuf v1.28.0
 	k8s.io/api v0.25.0
