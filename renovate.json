@@ -5,7 +5,7 @@
     ":dependencyDashboard",
     ":prHourlyLimit4",
     ":semanticCommits",
-    ":prConcurrentLimit10"
+    ":prConcurrentLimit20"
   ],
   "packageRules": [
     {
