@@ -9,7 +9,7 @@ require (
 	google.golang.org/protobuf v1.28.1
 	k8s.io/api v0.25.3
 	k8s.io/apimachinery v0.25.3
-	sigs.k8s.io/controller-runtime v0.13.1
+	sigs.k8s.io/controller-runtime v0.17.2
 )
 
 require (
